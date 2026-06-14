@@ -1,0 +1,23 @@
+# Dependencies
+node_modules/
+jspm_packages/
+
+# Logs and debug
+*.log
+npm-debug.log*
+yarn-*
+lerna-debug.log*
+
+# Environment
+.env*
+firebase-key.json
+
+# Build/Coverage
+dist/
+build/
+coverage/
+.nyc_output/
+
+# OS
+.DS_Store
+Thumbs.db
