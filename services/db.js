@@ -1,8 +1,9 @@
-const admin = require('firebase-admin');
+const { initializeApp, cert } = require('firebase-admin/app');
+const { getFirestore, FieldValue } = require('firebase-admin/firestore');
 const serviceAccount = require('../firebase-key.json');
 
-admin.initializeApp({ credential: admin.credential.cert(serviceAccount) });
-const db = admin.firestore();
+initializeApp({ credential: cert(serviceAccount) });
+const db = getFirestore();
 
 async function getUser(phone) {
   const doc = await db.collection('users').doc(phone).get();
@@ -17,8 +18,8 @@ async function logCheckin(phone, response) {
   await db.collection('checkins').add({
     phone,
     response,
-    timestamp: admin.firestore.FieldValue.serverTimestamp()
+    timestamp: FieldValue.serverTimestamp()
   });
 }
 
-module.exports = { getUser, updateUser, logCheckin };
+module.exports = { getUser, updateUser, logCheckin, db };
