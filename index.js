@@ -1,4 +1,6 @@
-require('dotenv').config();
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config();
+}
 const express = require("express");
 const app = express();
 app.use(express.json());
@@ -24,14 +26,18 @@ app.post("/webhook", async (req, res) => {
   if (body.object === "whatsapp_business_account") {
     const message = body.entry?.[0]?.changes?.[0]?.value?.messages?.[0];
     if (message) {
-      console.log(`[WEBHOOK] Message from ${message.from}: "${message.text?.body}"`);
+      console.log(
+        `[WEBHOOK] Message from ${message.from}: "${message.text?.body}"`,
+      );
       try {
         await handleMessage(message);
       } catch (err) {
         console.error("[WEBHOOK] Error handling message:", err);
       }
     } else {
-      console.log("[WEBHOOK] POST received but no message found (status update or other event)");
+      console.log(
+        "[WEBHOOK] POST received but no message found (status update or other event)",
+      );
     }
   } else {
     console.warn("[WEBHOOK] Unknown object type:", body.object);
@@ -40,6 +46,7 @@ app.post("/webhook", async (req, res) => {
   res.sendStatus(200);
 });
 
-app.listen(process.env.PORT || 3000, () =>
-  console.log(`[SERVER] Running on port ${process.env.PORT || 3000}`)
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, "0.0.0.0", () =>
+  console.log(`[SERVER] Running on port ${PORT}`),
 );
