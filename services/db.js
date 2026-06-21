@@ -1,24 +1,30 @@
-const { initializeApp, cert } = require('firebase-admin/app');
-const { getFirestore, FieldValue } = require('firebase-admin/firestore');
-const serviceAccount = require('../firebase-key.json');
+require("dotenv").config();
+const { initializeApp, cert } = require("firebase-admin/app");
+const { getFirestore, FieldValue } = require("firebase-admin/firestore");
+
+const raw = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT);
+const serviceAccount = {
+  ...raw,
+  private_key: raw.private_key.replace(/\\n/g, "\n"),
+};
 
 initializeApp({ credential: cert(serviceAccount) });
 const db = getFirestore();
 
 async function getUser(phone) {
-  const doc = await db.collection('users').doc(phone).get();
+  const doc = await db.collection("users").doc(phone).get();
   return doc.exists ? doc.data() : null;
 }
 
 async function updateUser(phone, data) {
-  await db.collection('users').doc(phone).set(data, { merge: true });
+  await db.collection("users").doc(phone).set(data, { merge: true });
 }
 
 async function logCheckin(phone, response) {
-  await db.collection('checkins').add({
+  await db.collection("checkins").add({
     phone,
     response,
-    timestamp: FieldValue.serverTimestamp()
+    timestamp: FieldValue.serverTimestamp(),
   });
 }
 
