@@ -24,19 +24,21 @@ app.post("/webhook", async (req, res) => {
   console.log("[WEBHOOK] Incoming POST:", JSON.stringify(body, null, 2));
 
   if (body.object === "whatsapp_business_account") {
-    const message = body.entry?.[0]?.changes?.[0]?.value?.messages?.[0];
-    if (message) {
+    const { parseWebhook } = require("./adapters/whatsappWebhook");
+    const inboundMessage = parseWebhook(body);
+    
+    if (inboundMessage) {
       console.log(
-        `[WEBHOOK] Message from ${message.from}: "${message.text?.body}"`,
+        `[WEBHOOK] Message from ${inboundMessage.participantPhone}: "${inboundMessage.content}"`,
       );
       try {
-        await handleMessage(message);
+        await handleMessage(inboundMessage);
       } catch (err) {
         console.error("[WEBHOOK] Error handling message:", err);
       }
     } else {
       console.log(
-        "[WEBHOOK] POST received but no message found (status update or other event)",
+        "[WEBHOOK] POST received but no valid message found (status update or other event)",
       );
     }
   } else {
@@ -47,6 +49,8 @@ app.post("/webhook", async (req, res) => {
 });
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, "0.0.0.0", () =>
-  console.log(`[SERVER] Running on port ${PORT}`),
-);
+app.listen(PORT, "0.0.0.0", async () => {
+  console.log(`[SERVER] Running on port ${PORT}`);
+  const { registerAllReminders } = require('./services/scheduler');
+  await registerAllReminders();
+});
