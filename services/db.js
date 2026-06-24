@@ -2,11 +2,10 @@ require("dotenv").config();
 const { initializeApp, cert } = require("firebase-admin/app");
 const { getFirestore, FieldValue } = require("firebase-admin/firestore");
 
-const raw = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT);
-const serviceAccount = {
-  ...raw,
-  private_key: raw.private_key.replace(/\\n/g, "\n"),
-};
+const base64Key = process.env.FIREBASE_SERVICE_ACCOUNT_BASE64;
+const serviceAccount = JSON.parse(
+  Buffer.from(base64Key, "base64").toString("utf-8"),
+);
 
 initializeApp({ credential: cert(serviceAccount) });
 const db = getFirestore();
@@ -29,12 +28,21 @@ async function logCheckin(phone, response) {
 }
 
 async function getAllUsersWithReminders() {
-  const snapshot = await db.collection("users").where("reminderTime", "!=", null).get();
+  const snapshot = await db
+    .collection("users")
+    .where("reminderTime", "!=", null)
+    .get();
   const users = [];
-  snapshot.forEach(doc => {
+  snapshot.forEach((doc) => {
     users.push({ phone: doc.id, ...doc.data() });
   });
   return users;
 }
 
-module.exports = { getUser, updateUser, logCheckin, getAllUsersWithReminders, db };
+module.exports = {
+  getUser,
+  updateUser,
+  logCheckin,
+  getAllUsersWithReminders,
+  db,
+};
