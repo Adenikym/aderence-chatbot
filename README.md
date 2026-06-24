@@ -58,7 +58,7 @@ npm test
 
 This codebase is maintained using a strict Agentic AI workflow. To contribute or add features, please follow these steps with your AI agent:
 
-1. **Grill and Align:** Use the `/grill-with-docs` or `/grilling` skill to debate and finalize architectural decisions before writing code. Update `CONTEXT.md` and `docs/adr/` with any new domain terms or architectural decisions.
+1. **Grill and Align:** Use the `/grill-with-docs` skill to debate and finalize architectural decisions before writing code. Update `CONTEXT.md` and `docs/adr/` with any new domain terms or architectural decisions.
 2. **Generate PRD:** Use the `/to-prd` skill to write a comprehensive Product Requirements Document and publish it to the GitHub issue tracker.
 3. **Slice into Issues:** Use the `/to-issues` skill to break the PRD down into small, vertical, independently grabbable tasks (Tracer Bullets).
 4. **Test-Driven Development:** For each issue, use the `/tdd` skill to implement the feature following the Red-Green-Refactor cycle. *Write the failing test first.*
