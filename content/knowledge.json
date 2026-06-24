@@ -1,0 +1,205 @@
+{
+  "main_menu": {
+    "text": "📚 *HIV Information Centre*\n\nWhat would you like to learn about?\n\n1 – What is HIV?\n2 – How HIV is transmitted\n3 – Prevention methods\n4 – HIV treatment (ART)\n5 – Living with HIV\n6 – Myths & Facts\n0 – Back to main menu",
+    "options": {
+      "1": "what_is_hiv",
+      "2": "transmission_menu",
+      "3": "prevention_menu",
+      "4": "art_menu",
+      "5": "living_menu",
+      "6": "myths_menu",
+      "0": "exit"
+    }
+  },
+  "what_is_hiv": {
+    "text": "🔬 *What is HIV?*\n\nHIV stands for Human Immunodeficiency Virus. It attacks the body's immune system — specifically CD4 cells (T cells) — which help fight infections.\n\nIf left untreated, HIV can progress to AIDS (Acquired Immunodeficiency Syndrome), where the immune system is too weak to fight off serious illnesses.\n\n⚡ *Key facts:*\n• HIV is a lifelong condition but it IS manageable\n• With treatment, people with HIV live long, healthy lives\n• HIV is NOT a death sentence\n\nReply *0* to go back to topics or *00* for main menu.",
+    "options": {
+      "0": "main_menu",
+      "00": "exit"
+    }
+  },
+  "transmission_menu": {
+    "text": "🔄 *HIV Transmission*\n\nHow would you like to learn about this?\n\n1 – How HIV IS spread\n2 – How HIV is NOT spread\n0 – Back to topics",
+    "options": {
+      "1": "transmission_1",
+      "2": "transmission_2",
+      "0": "main_menu"
+    }
+  },
+  "transmission_1": {
+    "text": "✅ *How HIV IS spread:*\n\nHIV is transmitted through specific body fluids:\n\n• 🩸 Blood\n• 💧 Breast milk\n• 💉 Sharing needles or syringes\n• 🤝 Unprotected sexual contact (vaginal, anal, oral)\n• 🤰 Mother to child during pregnancy, birth, or breastfeeding\n\nThe virus must enter the bloodstream to cause infection.\n\nReply *1* for how it's NOT spread, or *0* to go back.",
+    "options": {
+      "1": "transmission_2",
+      "0": "main_menu"
+    }
+  },
+  "transmission_2": {
+    "text": "❌ *How HIV is NOT spread:*\n\nYou CANNOT get HIV from:\n\n• 🤗 Hugging or touching someone\n• 🍽️ Sharing food, water, or utensils\n• 🦟 Mosquito or insect bites\n• 😮 Coughing or sneezing\n• 🚽 Toilet seats or door handles\n• 👁️ Saliva, tears, or sweat\n\nHIV does not survive long outside the human body.\n\nReply *0* to go back to topics.",
+    "options": {
+      "0": "main_menu"
+    }
+  },
+  "prevention_menu": {
+    "text": "🛡️ *HIV Prevention*\n\nChoose a topic:\n\n1 – Condoms\n2 – PrEP (Pre-Exposure Prophylaxis)\n3 – PEP (Post-Exposure Prophylaxis)\n4 – Testing & knowing your status\n0 – Back to topics",
+    "options": {
+      "1": "prevention_1",
+      "2": "prevention_2",
+      "3": "prevention_3",
+      "4": "prevention_4",
+      "0": "main_menu"
+    }
+  },
+  "prevention_1": {
+    "text": "🟢 *Condoms*\n\nMale and female condoms are highly effective at preventing HIV when used correctly and consistently.\n\n• Use a new condom for every sexual encounter\n• Check the expiry date before use\n• Use water-based lubricant with condoms\n• Condoms also protect against other STIs\n\nReply *0* to go back.",
+    "options": {
+      "0": "main_menu"
+    }
+  },
+  "prevention_2": {
+    "text": "💊 *PrEP (Pre-Exposure Prophylaxis)*\n\nPrEP is a daily medication taken by HIV-negative people to prevent getting HIV.\n\n• Reduces risk of getting HIV from sex by about 99%\n• Must be taken daily to be effective\n• Requires a prescription and regular HIV testing\n• Available at most HIV treatment centres in Nigeria\n\nTalk to your healthcare provider to see if PrEP is right for you.\n\nReply *0* to go back.",
+    "options": {
+      "0": "main_menu"
+    }
+  },
+  "prevention_3": {
+    "text": "🚨 *PEP (Post-Exposure Prophylaxis)*\n\nPEP is emergency medication taken AFTER a possible HIV exposure.\n\n• Must be started within *72 hours* of exposure\n• Taken daily for 28 days\n• The sooner you start, the more effective it is\n• Available at hospitals and HIV treatment centres\n\n⚠️ PEP is for emergencies — it is not a substitute for regular prevention.\n\nReply *0* to go back.",
+    "options": {
+      "0": "main_menu"
+    }
+  },
+  "prevention_4": {
+    "text": "🧪 *HIV Testing*\n\nKnowing your status is the first step to staying healthy.\n\n• HIV tests are widely available and confidential\n• Testing is quick — results in as little as 20 minutes\n• You should test regularly if you are sexually active\n• Early detection means earlier treatment and better outcomes\n\nTesting centres in Nigeria:\n• Government hospitals (General Hospitals, Teaching Hospitals)\n• PEPFAR-supported clinics\n• LSHTM / IDI partner sites\n\nReply *0* to go back.",
+    "options": {
+      "0": "main_menu"
+    }
+  },
+  "art_menu": {
+    "text": "💊 *HIV Treatment (ART)*\n\nChoose a topic:\n\n1 – What is ART?\n2 – Why adherence matters\n3 – What happens if I miss doses?\n4 – Side effects\n0 – Back to topics",
+    "options": {
+      "1": "art_1",
+      "2": "art_2",
+      "3": "art_3",
+      "4": "art_4",
+      "0": "main_menu"
+    }
+  },
+  "art_1": {
+    "text": "💊 *What is ART?*\n\nART stands for Antiretroviral Therapy. It is the standard treatment for HIV.\n\n• ART works by reducing the amount of virus (viral load) in your body\n• It does NOT cure HIV but keeps it under control\n• When taken correctly, ART can make the viral load undetectable\n• Undetectable = Untransmittable (U=U) — you cannot pass HIV to others\n• ART is usually taken as 1–2 pills daily\n\nReply *0* to go back.",
+    "options": {
+      "0": "main_menu"
+    }
+  },
+  "art_2": {
+    "text": "⭐ *Why Adherence Matters*\n\nAdherence means taking your medication every day, at the same time, as prescribed.\n\n• Taking ART consistently keeps your viral load undetectable\n• It protects your immune system from damage\n• It prevents drug resistance from developing\n• People with high adherence live as long as HIV-negative people\n\nEven missing a few doses a week can allow the virus to replicate and cause resistance.\n\nReply *0* to go back.",
+    "options": {
+      "0": "main_menu"
+    }
+  },
+  "art_3": {
+    "text": "⚠️ *What Happens If I Miss Doses?*\n\nMissing doses occasionally happens — here's what to know:\n\n• *If you remember the same day:* Take it as soon as you remember\n• *If it's almost time for the next dose:* Skip the missed one — never double dose\n• *Missing doses regularly:* The virus can multiply and become resistant to your medication\n\nIf you're struggling to take your medication consistently, talk to your healthcare provider. There may be solutions that can help.\n\nReply *0* to go back.",
+    "options": {
+      "0": "main_menu"
+    }
+  },
+  "art_4": {
+    "text": "💡 *ART Side Effects*\n\nMost people tolerate ART well. Some may experience:\n\n*Short-term (usually go away):*\n• Nausea or upset stomach\n• Headache\n• Fatigue\n• Diarrhoea\n\n*Long-term (less common):*\n• Sleep disturbances\n• Changes in body fat distribution\n• Kidney or liver changes (monitored by your doctor)\n\n⚠️ Never stop taking ART because of side effects without talking to your doctor first. Alternatives are usually available.\n\nReply *0* to go back.",
+    "options": {
+      "0": "main_menu"
+    }
+  },
+  "living_menu": {
+    "text": "🌱 *Living with HIV*\n\nChoose a topic:\n\n1 – Diet & nutrition\n2 – Exercise & lifestyle\n3 – Mental health & stigma\n4 – Relationships & disclosure\n0 – Back to topics",
+    "options": {
+      "1": "living_1",
+      "2": "living_2",
+      "3": "living_3",
+      "4": "living_4",
+      "0": "main_menu"
+    }
+  },
+  "living_1": {
+    "text": "🥗 *Diet & Nutrition*\n\nGood nutrition supports your immune system and helps ART work effectively.\n\n• Eat a balanced diet with plenty of fruits, vegetables, and protein\n• Stay hydrated — drink enough water daily\n• Avoid excessive alcohol — it can interfere with your medication\n• Some ART medications work better taken with food\n• Talk to your doctor about any supplements\n\nReply *0* to go back.",
+    "options": {
+      "0": "main_menu"
+    }
+  },
+  "living_2": {
+    "text": "🏃 *Exercise & Lifestyle*\n\nRegular physical activity benefits people living with HIV:\n\n• Improves energy levels and mood\n• Strengthens the immune system\n• Reduces stress and anxiety\n• Helps maintain a healthy weight\n\nEven 30 minutes of walking most days makes a significant difference. There are no restrictions on exercise for people on ART.\n\nReply *0* to go back.",
+    "options": {
+      "0": "main_menu"
+    }
+  },
+  "living_3": {
+    "text": "💙 *Mental Health & Stigma*\n\nLiving with HIV can affect your mental health. This is normal and you are not alone.\n\n• Anxiety, depression, and stress are common — seek support if needed\n• HIV-related stigma is a real challenge but it is based on misinformation\n• Connecting with support groups can help\n• Your healthcare team can refer you to counselling services\n\n*Remember:* Having HIV says nothing about your worth as a person. You deserve care, respect, and support.\n\nReply *0* to go back.",
+    "options": {
+      "0": "main_menu"
+    }
+  },
+  "living_4": {
+    "text": "❤️ *Relationships & Disclosure*\n\nDeciding who to tell about your status is personal.\n\n• You are NOT legally required to disclose to everyone\n• People with undetectable viral load have effectively zero risk of transmitting HIV sexually (U=U)\n• Talking to a counsellor before disclosing can help you prepare\n• Healthy relationships and intimacy are absolutely possible\n\nIf you are in a relationship with an HIV-negative partner, your doctor can discuss PrEP options for them.\n\nReply *0* to go back.",
+    "options": {
+      "0": "main_menu"
+    }
+  },
+  "myths_menu": {
+    "text": "🧐 *HIV Myths & Facts*\n\nChoose a myth to debunk:\n\n1 – \"HIV is a death sentence\"\n2 – \"You can tell if someone has HIV by looking at them\"\n3 – \"HIV can be spread by mosquitoes\"\n4 – \"Only certain types of people get HIV\"\n5 – \"If both partners have HIV they don't need condoms\"\n0 – Back to topics",
+    "options": {
+      "1": "myths_1",
+      "2": "myths_2",
+      "3": "myths_3",
+      "4": "myths_4",
+      "5": "myths_5",
+      "0": "main_menu"
+    }
+  },
+  "myths_1": {
+    "text": "❌ *MYTH: \"HIV is a death sentence\"*\n\n✅ *FACT:* With modern ART, people living with HIV have a near-normal life expectancy. HIV is a manageable chronic condition — like diabetes or hypertension. Millions of people live full, healthy lives with HIV.\n\nReply with another number or *0* to go back to topics.",
+    "options": {
+      "2": "myths_2",
+      "3": "myths_3",
+      "4": "myths_4",
+      "5": "myths_5",
+      "0": "main_menu"
+    }
+  },
+  "myths_2": {
+    "text": "❌ *MYTH: \"You can tell if someone has HIV by looking at them\"*\n\n✅ *FACT:* Most people with HIV look and feel completely healthy, especially those on treatment. The only way to know your HIV status is to get tested.\n\nReply with another number or *0* to go back to topics.",
+    "options": {
+      "1": "myths_1",
+      "3": "myths_3",
+      "4": "myths_4",
+      "5": "myths_5",
+      "0": "main_menu"
+    }
+  },
+  "myths_3": {
+    "text": "❌ *MYTH: \"HIV can be spread by mosquitoes\"*\n\n✅ *FACT:* HIV cannot be transmitted by mosquitoes, insects, or any other animals. The virus does not survive or replicate inside insects. It is only spread through specific human body fluids.\n\nReply with another number or *0* to go back to topics.",
+    "options": {
+      "1": "myths_1",
+      "2": "myths_2",
+      "4": "myths_4",
+      "5": "myths_5",
+      "0": "main_menu"
+    }
+  },
+  "myths_4": {
+    "text": "❌ *MYTH: \"Only certain types of people get HIV\"*\n\n✅ *FACT:* HIV does not discriminate. Anyone who is exposed to the virus can contract it, regardless of age, gender, sexual orientation, religion, or social status. Stigmatising certain groups creates barriers to testing and treatment.\n\nReply with another number or *0* to go back to topics.",
+    "options": {
+      "1": "myths_1",
+      "2": "myths_2",
+      "3": "myths_3",
+      "5": "myths_5",
+      "0": "main_menu"
+    }
+  },
+  "myths_5": {
+    "text": "❌ *MYTH: \"If both partners have HIV they don't need protection\"*\n\n✅ *FACT:* Different strains of HIV exist. Reinfection with a different strain can cause drug resistance and make treatment harder. Condoms are still recommended and also protect against other STIs.\n\nReply with another number or *0* to go back to topics.",
+    "options": {
+      "1": "myths_1",
+      "2": "myths_2",
+      "3": "myths_3",
+      "4": "myths_4",
+      "0": "main_menu"
+    }
+  }
+}
