@@ -28,4 +28,13 @@ async function logCheckin(phone, response) {
   });
 }
 
-module.exports = { getUser, updateUser, logCheckin, db };
+async function getAllUsersWithReminders() {
+  const snapshot = await db.collection("users").where("reminderTime", "!=", null).get();
+  const users = [];
+  snapshot.forEach(doc => {
+    users.push({ phone: doc.id, ...doc.data() });
+  });
+  return users;
+}
+
+module.exports = { getUser, updateUser, logCheckin, getAllUsersWithReminders, db };
