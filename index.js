@@ -7,6 +7,10 @@ app.use(express.json());
 
 const { handleMessage } = require("./flows/router");
 
+app.get("/health", (req, res) => {
+  res.status(200).json({ status: "ok" });
+});
+
 app.get("/webhook", (req, res) => {
   const VERIFY_TOKEN = process.env.VERIFY_TOKEN;
   console.log("[WEBHOOK] Verification request received");
@@ -49,8 +53,12 @@ app.post("/webhook", async (req, res) => {
 });
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, "0.0.0.0", async () => {
-  console.log(`[SERVER] Running on port ${PORT}`);
-  const { registerAllReminders } = require('./services/scheduler');
-  await registerAllReminders();
-});
+if (require.main === module) {
+  app.listen(PORT, "0.0.0.0", async () => {
+    console.log(`[SERVER] Running on port ${PORT}`);
+    const { registerAllReminders } = require('./services/scheduler');
+    await registerAllReminders();
+  });
+}
+
+module.exports = app;
