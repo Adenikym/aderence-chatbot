@@ -8,8 +8,10 @@ async function start(from, user) {
   console.log(`[CHECKIN] Check-in prompt sent to ${from}`);
 }
 
-async function handle(from, text, user) {
-  console.log(`[CHECKIN] Response from ${from}: "${text}"`);
+async function handle(message, user) {
+  const from = message.participantPhone;
+  const text = message.content?.trim().toLowerCase();
+  console.log(`[CHECKIN] Received response from ${from}: "${text}"`);
   const tookMeds = text.includes('yes') || text === '1' || text.includes('✅');
   console.log(`[CHECKIN] Adherence result: ${tookMeds ? 'TAKEN' : 'MISSED'}`);
 
@@ -24,4 +26,4 @@ async function handle(from, text, user) {
   }
 }
 
-module.exports = { start, handle };
+module.exports = { start, handle, supportedStates: ['checkin_pending'] };

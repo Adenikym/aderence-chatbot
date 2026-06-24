@@ -1,5 +1,6 @@
 const { sendMessage } = require('../services/whatsapp');
 const { updateUser } = require('../services/db');
+const { parseTime } = require('../services/parseTime');
 
 async function start(from) {
   console.log(`[ONBOARDING] Starting onboarding for ${from}`);
@@ -8,7 +9,9 @@ async function start(from) {
   console.log(`[ONBOARDING] Sent welcome message to ${from}`);
 }
 
-async function handle(from, text, user) {
+async function handle(message, user) {
+  const from = message.participantPhone;
+  const text = message.content?.trim().toLowerCase();
   console.log(`[ONBOARDING] Step "${user.step}" for ${from} | input: "${text}"`);
 
   if (user.step === 'ask_name') {
@@ -19,7 +22,19 @@ async function handle(from, text, user) {
   }
 
   if (user.step === 'ask_reminder_time') {
+    const parsed = parseTime(text);
+    
+    if (!parsed) {
+      await sendMessage(from, "I didn't quite get that — could you try a time like 8am or 2:30pm?");
+      console.log(`[ONBOARDING] Invalid reminder time input: "${text}" — re-prompting ${from}`);
+      return;
+    }
+
     await updateUser(from, { reminderTime: text, step: 'done', state: 'idle' });
+    
+    const { registerReminder } = require('../services/scheduler');
+    registerReminder(from, text);
+
     await sendMessage(from, `You're all set! I'll check in with you daily at ${text}.\n\nReply with:\n1 – Log today's medication\n2 – Learn about HIV`);
     console.log(`[ONBOARDING] Reminder time saved: "${text}" — onboarding complete for ${from}`);
     return;
@@ -28,4 +43,4 @@ async function handle(from, text, user) {
   console.warn(`[ONBOARDING] Unexpected step "${user.step}" for ${from}`);
 }
 
-module.exports = { start, handle };
+module.exports = { start, handle, supportedStates: ['onboarding'] };
