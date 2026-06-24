@@ -1,0 +1,3 @@
+# In-memory node-cron for Reminder scheduling
+
+We schedule daily reminders using `node-cron` running inside the Express process, with all jobs reconstructed from Firestore on server boot. We chose this over an external scheduler (Cloud Scheduler, Cloud Tasks) because the MVP serves 10–20 Co-Design Participants — a scale where a full Firestore collection scan on startup is trivial, and the operational overhead of a separate scheduling service is not justified. If the study scales beyond a single server process or requires guaranteed delivery during deployments, this decision should be revisited in favour of a persistent external scheduler.
