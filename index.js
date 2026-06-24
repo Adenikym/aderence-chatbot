@@ -53,12 +53,25 @@ app.post("/webhook", async (req, res) => {
 });
 
 const PORT = process.env.PORT || 3000;
-if (require.main === module) {
-  app.listen(PORT, "0.0.0.0", async () => {
-    console.log(`[SERVER] Running on port ${PORT}`);
+function startServer(port) {
+  const server = app.listen(port, "0.0.0.0", async () => {
+    console.log(`[SERVER] Running on port ${port}`);
     const { registerAllReminders } = require('./services/scheduler');
     await registerAllReminders();
   });
+
+  process.on('SIGTERM', () => {
+    console.log('[SERVER] SIGTERM received, shutting down gracefully');
+    server.close(() => {
+      console.log('[SERVER] Process terminated');
+    });
+  });
+
+  return server;
 }
 
-module.exports = app;
+if (require.main === module) {
+  startServer(PORT);
+}
+
+module.exports = { app, startServer };
